@@ -48,19 +48,10 @@ main = Html.beginnerProgram
 --
 
 mergeStrings : Maybe (List String) -> Result String String
-mergeStrings maybe =
-  case maybe of
-    Nothing -> Err "Lucas says this list doesn't exist"
-    Just list -> Ok (String.join "" list)
+mergeStrings maybe = Err "Wrong!"
 
 countStringLength : Result String String -> Result String Int
-countStringLength result =
-  case result of
-    Ok betterSomethingElse -> Ok (String.length betterSomethingElse)
-    Err message -> Err message
+countStringLength result = Err "Wrong"
 
 resultToModel : Result String Int -> Model
-resultToModel result =
-  case result of
-    Err someValueWhichIsAVariable -> Model Nothing
-    Ok itsAnInteger -> Model (Just itsAnInteger)
+resultToModel result = { Nothing }
