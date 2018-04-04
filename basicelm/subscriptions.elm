@@ -28,7 +28,7 @@ main =
     }
 
 -- MODEL
-type alias Model = Time
+type alias Model = Int
 
 init : (Model, Cmd Msg)
 init =
@@ -40,18 +40,20 @@ type Msg
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
-  Debug.crash "Not implemented"
+  case msg of
+    Tick addTime ->
+      ((model + 1), Cmd.none)
 
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Debug.crash "Not implemented"
+  every Time.millisecond Tick
 
 -- VIEW
 view : Model -> Html Msg
 view model =
   let
-    progress = "0"
+    progress = (toString (toFloat(model%5000)/50))
 
   in
     svg [ viewBox "0 0 120 120", width "500px" ]
