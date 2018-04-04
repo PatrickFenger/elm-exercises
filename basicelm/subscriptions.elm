@@ -42,7 +42,7 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     Tick addTime ->
-      ((model + 1), Cmd.none)
+      ((model + 5), Cmd.none)
 
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
